@@ -12,8 +12,10 @@ apellido:
 Ejercicio: Match_08
 ---
 Enunciado:
-Obtener el destino seleccionado en el combobox_destino, luego al presionar el botón 
-‘Informar’ indicar mediante alert si en el destino hace frío o calor la mayoría 
+Obtener el destino seleccionado en el 
+combobox_destino, luego al presionar el botón 
+‘Informar’ indicar mediante alert si en el 
+destino hace frío o calor la mayoría 
 de las estaciones del año.
 '''
 
@@ -25,7 +27,7 @@ class App(customtkinter.CTk):
 
         self.title("UTN FRA")
         
-        destinos = ['Bariloche', 'Mar del plata', 'Cataratas', 'Ushuaia']
+        destinos = ['Canadá', 'Puerto rico', 'Cataratas', 'Ushuaia']
         self.combobox_destino = customtkinter.CTkComboBox(master=self, values=destinos)
         self.combobox_destino.grid(row=1, column=0, padx=20, pady=(10, 10))
         
@@ -34,7 +36,19 @@ class App(customtkinter.CTk):
         
     
     def btn_informar_on_click(self):
-        pass
+        combobox_destino = self.combobox_destino.get()
+
+        match combobox_destino :
+            case "Canadá":
+                mensaje = f"En el destino {combobox_destino} la mayoria del año es frío"
+            case "Puerto rico":
+                mensaje = f"En el destino {combobox_destino} la mayoria del año es cálido"
+            case "Cataratas":
+                mensaje = f"En el destino {combobox_destino} la mayoria del año es cálido"
+            case "Ushuaia":
+                mensaje = f"En el destino {combobox_destino} la mayoria del año es frío"
+
+        alert("Mensaje", mensaje)
     
     
 if __name__ == "__main__":

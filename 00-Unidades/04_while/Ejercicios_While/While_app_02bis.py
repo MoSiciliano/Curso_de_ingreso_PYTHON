@@ -29,8 +29,16 @@ class App(customtkinter.CTk):
         
     
     def btn_mostrar_iteracion_on_click(self):
-        pass
-    
+        contador_iteraciones = 0
+        acumulador_suma = 0
+
+        while contador_iteraciones < 11:
+            #print(contador_iteraciones + 1)
+            if contador_iteraciones % 2 == 0:
+                acumulador_suma = acumulador_suma + contador_iteraciones
+
+            contador_iteraciones += 1
+        alert("Mensaje", f"La suma de los números pares es {acumulador_suma}")  
     
 if __name__ == "__main__":
     app = App()
